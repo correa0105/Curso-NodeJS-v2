@@ -20,6 +20,12 @@ const server = http.createServer((req, res) => {
             })
 
         } else {
+            
+            fs.readFile('404.html', (err, data) => {
+                res.writeHead(404, { "Content-Type": "text/html "})
+                res.write(data)
+                return res.end()    
+            })
 
         }
 
