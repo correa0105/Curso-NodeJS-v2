@@ -1,0 +1,17 @@
+<%- include("includes/head"); %>
+
+<h1>VOCÊ POSTOU O ARTIGO NO BLOG</h1>
+
+<% posts.forEach((element, index) => { %>
+  <h1><%= element.title %></h1>
+  <p><%= element.category %></p>
+  <p><%= element.body %></p>
+  <span>Quantidade de comentários: <%= element.comments %></span>
+<% }) %>
+
+<br>
+<br>
+
+<a href="/">Voltar para home</a>
+
+<%- include("includes/footer"); %>

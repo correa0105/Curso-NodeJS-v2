@@ -1,0 +1,11 @@
+<%- include("includes/head"); %>
+
+<h1>BEM VINDO A AREA DE MEMBROS</h1>
+
+<% items.forEach((element, index) => { %>
+  <li>ID: <%= index %> <%= element %></li>
+<% }) %>
+
+<a href="/">Voltar para home</a>
+
+<%- include("includes/footer"); %>

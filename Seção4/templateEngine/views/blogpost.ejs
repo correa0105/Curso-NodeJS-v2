@@ -1,0 +1,17 @@
+<%- include("includes/head"); %>
+
+<h1>VOCÊ POSTOU O ARTIGO NO BLOG</h1>
+
+<% with(post) { %>
+  <h1><%= title %></h1>
+  <p><%= category %></p>
+  <p><%= body %></p>
+  <span>Quantidade de comentários: <%= comments %></span>
+<% } %>
+
+<br>
+<br>
+
+<a href="/">Voltar para home</a>
+
+<%- include("includes/footer"); %>

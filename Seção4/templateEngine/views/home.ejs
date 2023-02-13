@@ -1,0 +1,15 @@
+<%- include("includes/head"); %>
+
+<h1>Este é a Home</h1>
+<h1>Sejá bem-vindo!</h1>
+<p>O nome do usuário é? <%= user.name + ' ' + user.lastname %>, e sua idade é <%= user.age %></p>
+
+<% if (auth) { %>
+    <h2>Usuário autenticado, <a href="/dashboard">Clique aqui</a> para ser redirecionado a area de membros.</h2>
+<% } else { %>
+    <h2>Usuário não autenticado.</h2>
+<% } %>
+
+
+
+<%- include("includes/footer"); %>
