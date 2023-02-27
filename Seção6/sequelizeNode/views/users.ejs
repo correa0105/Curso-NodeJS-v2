@@ -1,0 +1,29 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Usuários Cadastrados</h1>
+
+<div class="users-container">
+    <table>
+        <tr>
+            <th>Usuário</th>
+            <th>Profissão</th>
+            <th>Configurações</th>
+        </tr>
+        <% for(let user of users) { %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.occupation %></td>
+            <td class="config">
+                <a href="/users/<%= user.id %>" class="button">Detalhes</a>
+                <form class="remove_user" action="/users/delete/<%= user.id %>" method="POST">
+                    <input type="submit" value="Remover" class="button">
+                </form>
+                <a href="/users/edit/<%= user.id %>" class="button">Editar</a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+</div>
+
+<%- include("includes/footer"); %>

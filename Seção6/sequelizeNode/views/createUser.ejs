@@ -1,0 +1,22 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Cadastre o Usuário</h1>
+
+<form action="/users/create" method="POST">
+    <div class="form-control">
+        <label for="name">Nome</label>
+        <input type="text" name="name" placeholder="Digite o nome do Usuário">
+    </div>
+    <div class="form-control">
+        <label for="occupation">Profissão</label>
+        <input type="text" name="occupation" placeholder="Digite a profissão">
+    </div>
+    <div class="form-checkbox">
+        <label for="newsletter">Enviar Promossões</label>
+        <input type="checkbox" name="newsletter" checked>
+    </div>
+    <input id="cadastrar" type="submit" value="Cadastrar">
+</form>
+
+<%- include("includes/footer"); %>

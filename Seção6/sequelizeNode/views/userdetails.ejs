@@ -1,0 +1,55 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Detalhes do Usuário</h1>
+
+<div class="users-container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Usuário</th>
+            <th>Profissão</th>
+            <th>Newsletter</th>
+        </tr>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.occupation %></td>
+            <% if(user.newsletter === 1) { %>
+                <td>Checked</td>
+            <% } else { %>
+                <td>N/A</td>
+            <% } %>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    <h2>Endreços</h2>
+
+    <table>
+        <tr>
+            <th>Rua</th>
+            <th>Numero</th>
+            <th>Cidade</th>
+            <th>Config</th>
+        </tr>
+        <% for(let adress of user.Adresses) { %>
+        <tr>
+            <td><%= adress.street %></td>
+            <td><%= adress.number %></td>
+            <td><%= adress.city %></td>
+            <td class="config">
+                <form class="remove_user" action="/adress/delete" method="POST">
+                    <input type="hidden" name="UserId" value="<%= adress.UserId %>">
+                    <input type="hidden" name="id" value="<%= adress.id %>">
+                    <input type="submit" value="Excluir" class="button">
+                </form>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+</div>
+
+
+<%- include("includes/footer"); %>

@@ -1,0 +1,46 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Editando - <%= user.name %></h1>
+
+<form action="/users/updateuser/" method="POST">
+    <input type="hidden" name="id" value="<%= user.id %>">
+    <div class="form-control">
+        <label for="name">Nome</label>
+        <input type="text" name="name" placeholder="Digite o nome do Usuário" value="<%= user.name %>">
+    </div>
+    <div class="form-control">
+        <label for="occupation">Profissão</label>
+        <input type="text" name="occupation" placeholder="Digite a profissão" value="<%= user.occupation %>">
+    </div>
+    <div class="form-checkbox">
+        <label for="newsletter">Enviar Promossões</label>
+        <% if(user.newsletter === 1) { %>
+            <input type="checkbox" name="newsletter" checked>
+        <% } else { %>
+            <input type="checkbox" name="newsletter">
+        <% } %>
+    </div>
+    <input id="cadastrar" type="submit" value="Editar">
+</form>
+
+<h2>Endereço</h2>
+
+<form action="/adress/create" method="POST">
+    <input type="hidden" name="UserId" value="<%= user.id %>">
+    <div class="form-control">
+        <label for="street">Rua</label>
+        <input type="text" name="street" placeholder="Digite o nome da rua">
+    </div>
+    <div class="form-control">
+        <label for="number">Número</label>
+        <input type="text" name="number" placeholder="Digite o número da rua">
+    </div>
+    <div class="form-control">
+        <label for="city">Cidade</label>
+        <input type="text" name="city" placeholder="Digite a cidade">
+    </div>
+    <input id="cadastrar" type="submit" value="Incluir Endereços">
+</form>
+
+<%- include("includes/footer"); %>
