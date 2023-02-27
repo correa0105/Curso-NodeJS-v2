@@ -1,0 +1,19 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Edite o Seu Livro</h1>
+
+<form action="/books/updatebook" method="POST">
+    <input type="hidden" name="id" value="<%= book.id %>">
+    <div class="form-control">
+        <label for="title">Titulo</label>
+        <input type="text" name="title" placeholder="Digite o titulo." value="<%= book.title %>">
+    </div>
+    <div class="form-control">
+        <label for="pagesqty">Numero de Páginas</label>
+        <input type="number" name="pagesqty" placeholder="Digite a quantidade de paginas." value="<%= book.pagesqty %>">
+    </div>
+    <input id="cadastrar" type="submit" value="Editar">
+</form>
+
+<%- include("includes/footer"); %>

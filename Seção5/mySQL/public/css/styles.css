@@ -1,0 +1,83 @@
+* {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/* CADASTRO */
+
+h1 {
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+}
+
+form {
+    width: 450px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+form input:nth-child(2) {
+    padding: .3rem;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+/* FECHA CADASTRO */
+
+/* LIVROS */
+
+.books-container {
+    gap: 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    text-align: center;
+}
+
+table td {
+    border: 1px solid black;
+    width: 15rem;
+    padding: .4rem 0;
+}
+
+/* FECHA LIVROS */
+
+/* MENU */
+
+aside {
+    background-color: #f5f8e9;
+}
+
+.menu-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.menu-container ul {
+    display: flex;
+    padding: .5rem 0;
+    gap: 1.5rem
+}
+
+/* FECHA MENU */
+
+/* REMOVE BOOK */
+
+.remove_book {
+    padding: 0;
+    width: 5rem;
+}
+
+/* FECHA REMOVE BOOK */

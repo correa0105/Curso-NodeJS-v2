@@ -1,0 +1,23 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<h1>Livros Disponíveis</h1>
+
+<div class="books-container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Livro</th>
+            <th>Quantidade de Paginas</th>
+          </tr>
+        <% for(let book of books) { %>
+            <tr>
+                <td><%= book.id %></td>
+                <td><a href="/books/<%= book.id %>"><%= book.title %></a></td>
+                <td><%= book.pagesqty %></td>
+            </tr>
+        <% } %>
+    </table>
+</div>
+
+<%- include("includes/footer"); %>
