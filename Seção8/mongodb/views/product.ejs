@@ -1,0 +1,23 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<div class="products">
+    <h1 class="h3">Editando: <%= product.name %></h1>
+    <div class="card mt-3" style="width: 18rem;">
+        <img class="card-img-top p-4" src="<%= product.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <span>R$<%= product.price %></span>
+          <p class="card-text"><%= product.description %></p>
+          <div class="d-flex gap-2">
+            <form action="/products/edit/<%= product._id %>" method="GET" class="w-100">
+              <input type="submit" value="Editar" class="btn btn-danger w-100">
+            </form>
+            <form action="/products/remove/<%= product._id %>" method="POST" class="w-100">
+              <input type="submit" value="Excluir" class="btn btn-danger w-100">
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+<%- include("includes/footer"); %>
