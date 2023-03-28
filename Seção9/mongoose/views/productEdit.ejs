@@ -1,0 +1,42 @@
+<%- include("includes/head"); %>
+<%- include("partials/header"); %>
+
+<div class="products">
+  <h1 class="h3">Editando: <%= product.name %></h1>
+  <div class="d-flex mt-3 gap-3 col-12">
+    <div class="card col-4" style="width: 18rem;">
+      <img class="card-img-top p-4" src="<%= product.image %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= product.name %></h5>
+        <span>R$<%= product.price %></span>
+        <p class="card-text"><%= product.description %></p>
+        <div class="d-flex gap-2">
+          <form action="/products/remove/<%= product._id %>" method="POST">
+            <input type="submit" value="Excluir" class="btn btn-danger">
+          </form>
+        </div>
+      </div>
+    </div>
+    <form action="/products/edit" method="POST" class="col-7">
+      <input type="hidden" name="id" class="form-control" value="<%= product._id %>"/>
+      <div class="form-outline mb-4">
+        <input type="text" name="name" class="form-control" value="<%= product.name %>"/>
+        <label class="form-label">Produto</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" name="image" class="form-control" value="<%= product.image %>"/>
+        <label class="form-label">Url Imagem</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" name="price" class="form-control" value="<%= product.price %>"/>
+        <label class="form-label">Preço do Produto</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" name="description" class="form-control" value="<%= product.description %>"/>
+        <label class="form-label">Descrição</label>
+      </div>
+      <button type="submit" class="btn btn-danger btn-block">Salvar</button>
+    </form>
+  </div>     
+</div>
+<%- include("includes/footer"); %>

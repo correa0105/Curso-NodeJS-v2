@@ -3,7 +3,7 @@ const Product = require('../models/Product')
 module.exports = class ProductController {
 
     static async showProducts(req, res) {
-        const products = await Product.getProducts()
+        const products = await Product.find().lean()
 
         res.render('products', { products })
     }
@@ -12,12 +12,12 @@ module.exports = class ProductController {
         res.render('createProducts')
     }
 
-    static createProductPost(req, res) {
+    static async createProductPost(req, res) {
         const { image, name, price, description } = req.body
 
-        const product = new Product(image, name, price, description);
+        const product = new Product({image, name, price, description});
 
-        product.save()
+        await product.save()
 
         res.redirect('/products')
     }
@@ -25,23 +25,15 @@ module.exports = class ProductController {
     static async showProduct(req, res) {
         const id = req.params.id
         
-        const product = await Product.getProductById(id)
+        const product = await Product.findById(id).lean()
 
         res.render('product', { product })
-    }
-
-    static async removeProduct(req, res) {
-        const id = req.params.id
-        
-        await Product.removeProductById(id)
-
-        res.redirect('/products')
     }
 
     static async editProduct(req, res) {
         const id = req.params.id
         
-        const product = await Product.getProductById(id)
+        const product = await Product.findById(id).lean()
 
         res.render('productEdit', { product })
     }
@@ -49,9 +41,17 @@ module.exports = class ProductController {
     static async editProductPost(req, res) {
         const { id, image, name, price, description } = req.body
         
-        const product = new Product(image, name, price, description)
+        const product = { image, name, price, description }
 
-        await product.updateProduct(id)
+        await Product.updateOne({ _id: id }, product)
+
+        res.redirect('/products')
+    } 
+    
+    static async removeProduct(req, res) {
+        const id = req.params.id
+        
+        await Product.deleteOne({ _id: id})
 
         res.redirect('/products')
     }
